@@ -75,7 +75,7 @@ void Piccolino_IO::pinMode(uint8_t pin, char mode)
 }
  
 // change state of pin (0 - 15)
-void Piccolino_IO::digitalWrite(uint8_t pin, char data)
+void Piccolino_IO::digitalWrite(uint8_t pin, char mode)
 {
    uint8_t io,p;
 
@@ -88,7 +88,7 @@ void Piccolino_IO::digitalWrite(uint8_t pin, char data)
     io = _ioread(CMD_WR1);
   
 
-  if (data == HIGH)
+  if (mode == INPUT)
     io |= 1 << p; 
   else 
     io &= ~(1 << p);
